@@ -1,0 +1,76 @@
+{% import 'macros.html' as macros %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Grass Snake</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <link href="{{url_for('static', filename='stickyfooter.css')}}" rel="stylesheet">
+  </head>
+  <body>
+  {% block navbar %}
+
+  <nav class="navbar navbar-inverse" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Grass Snake</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+  <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Environment Controls<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Set Fan Thresholds</a></li>
+                   <li>
+              <a href="#">Set Light Timing</a>
+
+            </li>
+               <li>
+              <a href="#">Toggles</a>
+
+            </li>
+                </ul>
+            </li>
+         {{macros.nav_link('analytics', 'Analytics')}}
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">User<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Settings</a></li>
+            <li><a href = "#">Log Out</a></li>
+
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+{% endblock %}
+    <div class="container">
+
+      <br>
+      {% block content %}{% endblock %}
+      <br>
+
+    </div>
+
+   <div class="container-fluid">
+<footer class="footer">
+
+        <span class="text-muted">Grass Snake</span>
+        </footer>
+      </div>
+
+  </body>
+</html>

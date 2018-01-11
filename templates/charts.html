@@ -1,0 +1,46 @@
+ {% extends 'layout.html' %}
+ {% block content %}
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+ <script>
+ google.charts.load('current', {packages: ['corechart', 'line']});
+google.charts.setOnLoadCallback(drawDayChart);
+
+function drawDayChart() {
+      var data = new google.visualization.DataTable();
+      data.addColumn('number', 'X');
+      data.addColumn('number', 'Temp');
+      data.addColumn('number', 'Hum');
+
+      data.addRows([
+
+   {% for i in range(0,(rowdata|length -1)) %}
+
+   [{{rowdata[i][0].hour}},{{rowdata[i][1]}},{{rowdata[i][2]}}],
+
+  {% endfor %}
+  [{{rowdata[-1][0].hour}},{{rowdata[-1][1]}},{{rowdata[-1][2]}}]
+
+
+      ]);
+
+      var options = {
+        hAxis: {
+          title: 'Last 24 Hours'
+        },
+        vAxis: {
+          title: 'Temp/Humidity'
+        },
+        series: {
+          1: {curveType: 'function'}
+        }
+      };
+
+      var daychart = new google.visualization.LineChart(document.getElementById('day_chart'));
+      daychart.draw(data, options);
+
+    }
+    </script>
+
+  <div id="day_chart"></div>
+
+  {% endblock %}

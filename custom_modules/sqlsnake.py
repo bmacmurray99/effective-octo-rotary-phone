@@ -2,10 +2,10 @@
 import os,sys,mysql.connector
 
 # connects to database to use cursor in functions
-config = {   'user' : 'FlyingToastersUn',
-            'password' : 'LensWipeConcreteVagabond',
-            'host' :'FlyingToastersUnlimited.mysql.pythonanywhere-services.com',
-            'database': 'FlyingToastersUn$gbox' }
+config = {   'user' : 'user',
+            'password' : 'password',
+            'host' :'host',
+            'database': 'database' }
 def get_db():
     try:
         connection = mysql.connector.connect(**config)

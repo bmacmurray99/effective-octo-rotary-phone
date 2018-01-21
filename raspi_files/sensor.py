@@ -33,10 +33,10 @@ print(timestamp,hum,temp)
 
 
 GPIO.setmode(GPIO.BCM)
-if int(temp) > 25 or int(hum) > 80 and GPIO.function() ! = 'GPIO.OUT':
+if int(temp) > 25 or int(hum) > 80 and GPIO.function() != 'GPIO.OUT':
 	GPIO.setup(channels, GPIO.OUT)
 	#Set Pinout Mode as BCM 
-elif int(temp) <= 25 or int(hum) <= 80 and GPIO.function() ! = 'GPIO.IN':
+elif int(temp) <= 25 or int(hum) <= 80 and GPIO.function() != 'GPIO.IN':
 	GPIO.setup(channels, GPIO.IN)
 	GPIO.cleanup() 
 

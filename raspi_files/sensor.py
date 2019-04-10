@@ -15,7 +15,7 @@ payload = {
 	'temp':temp,
 	'hum':hum,
 	'time': str(timestamp),
-	'lights': 1,
+	'lights': 0,
 	'fans':0
 }
 #Define BCM Channels
@@ -33,10 +33,10 @@ print(timestamp,hum,temp)
 
 
 GPIO.setmode(GPIO.BCM)
-if int(temp) > 25 or int(hum) > 80 and GPIO.function() ! = 'GPIO.OUT':
+if int(temp) > 25 or int(hum) > 80 and GPIO.function() != 'GPIO.OUT':
 	GPIO.setup(channels, GPIO.OUT)
 	#Set Pinout Mode as BCM 
-elif int(temp) <= 25 or int(hum) <= 80 and GPIO.function() ! = 'GPIO.IN':
+elif int(temp) <= 25 or int(hum) <= 80 and GPIO.function() != 'GPIO.IN':
 	GPIO.setup(channels, GPIO.IN)
 	GPIO.cleanup() 
 
@@ -46,7 +46,7 @@ elif int(temp) <= 25 or int(hum) <= 80 and GPIO.function() ! = 'GPIO.IN':
 
 #Generates 24 hours of fake data
 
-	"""
+"""
 
 def fake_data():
 	hour = 0
@@ -74,6 +74,7 @@ data = pload)
 	
 
 
-fake_data()
+
+
 
 """
